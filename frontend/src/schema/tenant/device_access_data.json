@@ -1,0 +1,26 @@
+{
+  "title": "设备接入数据",
+  "description": "只存储产生告警、故障的接入数据，正常数据从接入平台获取",
+  "type": "object",
+  "properties": {
+    "time": {
+      "type": "number",
+      "title": "时间",
+      "format": "date"
+    },
+    "device": {
+      "type": "string",
+      "title": "设备",
+      "$id": "#tenant.device"
+    },
+    "status": {
+      "$ref": "common/definitions/accessStatus"
+    },
+    "code": {
+      "$ref": "common/definitions/accessCode"
+    },
+    "data": {
+      "$ref": "common/definitions/accessData"
+    }
+  }
+}

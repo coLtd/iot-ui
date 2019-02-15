@@ -1,0 +1,146 @@
+{
+  "title": "设备",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "设备名称",
+      "minLength": 2,
+      "maxLength": 32,
+      "pattern": "^[a-zA-Z\u4e00-\u9fa5]+$"
+    },
+    "code": {
+      "type": "string",
+      "title": "设备ID",
+      "minLength": 2,
+      "maxLength": 128
+    },
+    "type": {
+      "$id": "#base.device.type",
+      "type": "string",
+      "title": "设备类型"
+    },
+    "farmland": {
+      "$id": "#tenant.farmland",
+      "type": "string",
+      "title": "所属地块"
+    },
+    "lng": {
+      "type": "number",
+      "title": "经度",
+      "minimum": -180,
+      "maximum": 180,
+      "pattern": "^-{0,1}\\d+(\\.{0,1}\\d+){0,1}$"
+    },
+    "lat": {
+      "type": "number",
+      "title": "纬度",
+      "minimum": -90,
+      "maximum": 90,
+      "pattern": "^-{0,1}\\d+(\\.{0,1}\\d+){0,1}$"
+    },
+    "alti": {
+      "type": "number",
+      "title": "海拔",
+      "pattern": "^-{0,1}\\d+(\\.{0,1}\\d+){0,1}$"
+    },
+    "location": {
+      "type": "string",
+      "title": "安装位置",
+      "minLength": 2,
+      "maxLength": 128
+    },
+    "status": {
+      "$ref": "common/definitions/status"
+    },
+    "remark": {
+      "type": "string",
+      "title": "描述"
+    },
+    "photos": {
+      "type": "array",
+      "title": "设备图片",
+      "items": {
+        "type": "string"
+      },
+      "format": "img"
+    },
+    "asset": {
+      "type": "object",
+      "title": "资产信息",
+      "properties": {
+        "serialNumber": {
+          "type": "string",
+          "title": "设备序列号/SIM ID",
+          "minLength": 2,
+          "maxLength": 128
+        },
+        "belongTo": {
+          "type": "string",
+          "title": "设备归属",
+          "minLength": 2,
+          "maxLength": 128
+        },
+        "activeOn": {
+          "type": "number",
+          "title": "入网时间",
+          "format": "date"
+        },
+        "guaranteedOn": {
+          "type": "number",
+          "title": "保修截止日期",
+          "format": "date"
+        }
+      }
+    },
+    "staff": {
+      "type": "string",
+      "$id": "#tenant.staff",
+      "title": "操作人"
+    },
+    "updatedOn": {
+      "type": "number",
+      "title": "操作时间",
+      "format": "datetime"
+    },
+    "params": {
+      "type": "object",
+      "description": "设备参数, 根据设备参数定义维护，增、改时忽略, key: base.device.param_type._id.$oid"
+    },
+    "accessState": {
+      "type": "object",
+      "title": "接入状态",
+      "description": "根据接入上报数据得到的最新的设备状态, 增、改时忽略",
+      "properties": {
+        "time": {
+          "type": "number",
+          "title": "时间",
+          "format": "datetime"
+        },
+        "status": {
+          "$ref": "common/definitions/accessStatus"
+        },
+        "code": {
+          "$ref": "common/definitions/accessCode"
+        },
+        "data": {
+          "$ref": "common/definitions/accessData"
+        }
+      }
+    },
+    "controlData": {
+      "type": "object",
+      "title": "控制器状态",
+      "description": "记录控制器控制状态, 结构为: { base.sensor.type.code: { channelId: { command: { time: '操作时间, type: long', status: '操作状态, [0: 失败, 1: 成功, 2: 未知]', v: '希望设置的值' } } } }",
+      "readOnly": true,
+      "writeOnly": true
+    }
+  },
+  "required": [
+    "name",
+    "code",
+    "type",
+    "farmland",
+    "status"
+  ]
+}

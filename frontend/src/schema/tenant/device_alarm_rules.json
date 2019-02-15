@@ -1,0 +1,129 @@
+{
+  "title": "设备报警规则",
+  "type": "object",
+  "properties": {
+    "device": {
+      "type": "string",
+      "title": "设备",
+      "$id": "#tenant.device"
+    },
+    "name": {
+      "type": "string",
+      "title": "规则名称"
+    },
+    "period": {
+      "type": "object",
+      "title": "周期",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "integer",
+          "title": "执行周期",
+          "enum": [
+            1,
+            2
+          ],
+          "enumNames": [
+            "每周重复",
+            "自定义日期"
+          ],
+          "default": 1
+        }
+      },
+      "dependencies": {
+        "type": {
+          "oneOf": [
+            {
+              "required": [
+                "days"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    1
+                  ]
+                },
+                "days": {
+                  "type": "array",
+                  "title": "执行日程",
+                  "items": {
+                    "type": "integer",
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5,
+                      6,
+                      7
+                    ],
+                    "enumNames": [
+                      "周一",
+                      "周二",
+                      "周三",
+                      "周四",
+                      "周五",
+                      "周六",
+                      "周日"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "required": [
+                "startDate",
+                "stopDate"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    2
+                  ]
+                },
+                "startDate": {
+                  "type": "number",
+                  "title": "开始日期",
+                  "format": "date"
+                },
+                "stopDate": {
+                  "type": "number",
+                  "title": "结束日期",
+                  "format": "date"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "startTime": {
+      "type": "integer",
+      "title": "开始时间",
+      "description": "0点到该时间的毫秒数, 如8:30, 值为 8 * 60 * 60 * 1000 + 30 * 60 * 1000",
+      "format": "time"
+    },
+    "stopTime": {
+      "type": "integer",
+      "title": "结束时间",
+      "description": "0点到该时间的毫秒数",
+      "format": "time"
+    },
+    "status": {
+      "$ref": "common/definitions/status"
+    },
+    "rules": {
+      "type": "object",
+      "title": "规则",
+      "description": "key: sensor._id.$oid, value: {min: number, max: number}"
+    }
+  },
+  "required": [
+    "device",
+    "name",
+    "startTime",
+    "stopTime"
+  ]
+}

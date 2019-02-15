@@ -1,0 +1,23 @@
+{
+  "title": "设备接入数据汇总",
+  "type": "object",
+  "properties": {
+    "time": {
+      "type": "number",
+      "title": "时间",
+      "format": "date"
+    },
+    "period": {
+      "$ref": "common/definitions/period"
+    },
+    "device": {
+      "type": "string",
+      "title": "设备",
+      "$id": "#tenant.device"
+    },
+    "data": {
+      "$ref": "common/definitions/accessData",
+      "description": "value 中不记录 o, c, status, 添加times: 次数，使用时用 v / times"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+PODS:
+  - barcode_scan (0.0.1):
+    - Flutter
+    - MTBBarcodeScanner
+  - BMKLocationKit (1.2.1)
+  - Flutter (1.0.0)
+  - MTBBarcodeScanner (5.0.6)
+  - my_location (0.0.1):
+    - BMKLocationKit
+    - Flutter
+  - path_provider (0.0.1):
+    - Flutter
+  - shared_preferences (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - barcode_scan (from `.symlinks/plugins/barcode_scan/ios`)
+  - Flutter (from `.symlinks/flutter/ios`)
+  - my_location (from `.symlinks/plugins/my_location/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BMKLocationKit
+    - MTBBarcodeScanner
+
+EXTERNAL SOURCES:
+  barcode_scan:
+    :path: ".symlinks/plugins/barcode_scan/ios"
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  my_location:
+    :path: ".symlinks/plugins/my_location/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
+  shared_preferences:
+    :path: ".symlinks/plugins/shared_preferences/ios"
+
+SPEC CHECKSUMS:
+  barcode_scan: 8288e70cb430072003bce2c794a1431e7adbcb4d
+  BMKLocationKit: c0fd588904738a6865e9311ed445c38452039007
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  MTBBarcodeScanner: bb0bb62e18b57f8a571a482248adc20722b70a91
+  my_location: c8f662057cbd654589a3192cae0c88d1a3b1bff3
+  path_provider: 09407919825bfe3c2deae39453b7a5b44f467873
+  shared_preferences: 5a1d487c427ee18fcd3ea1f2a131569481834b53
+
+PODFILE CHECKSUM: 1b24ffbde94dfa8b31e5f2ce3a5ac7c82c5d45c6
+
+COCOAPODS: 1.5.3

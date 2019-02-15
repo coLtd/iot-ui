@@ -1,0 +1,87 @@
+{
+  "$id": "common",
+  "title": "iov-common-schema",
+  "definitions": {
+    "status": {
+      "type": "integer",
+      "title": "启用状态",
+      "enum": [
+        0,
+        1
+      ],
+      "enumNames": [
+        "禁用",
+        "启用"
+      ],
+      "default": 1
+    },
+    "accessStatus": {
+      "type": "array",
+      "title": "当前状态",
+      "items": {
+        "type": "integer",
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "enumNames": [
+          "正常",
+          "报警",
+          "故障"
+        ]
+      }
+    },
+    "accessCode": {
+      "type": "array",
+      "title": "状态编码",
+      "items": {
+        "type": "integer",
+        "enum": [
+          1,
+          2,
+          3,
+          1001,
+          1002,
+          2001,
+          2002,
+          2003
+        ],
+        "enumNames": [
+          "就绪",
+          "正常",
+          "休眠",
+          "传感器告警",
+          "视频越线告警",
+          "数据异常",
+          "硬件故障",
+          "设备离线"
+        ]
+      }
+    },
+    "accessData": {
+      "type": "object",
+      "description": "接入数据, key: {类型标识{0: 传感设备 1: 控制设备}}:{base.sensor.type.code}:{通道号}(如果没有通道号，省略最后的':')  , value: {v: 接入上报值或使用的计算值, o: 接入原始值, c: [计算值, 可能有多个], status: 0: 正常 , 1: 就绪 2: 禁用 3: 未接 64: 数据丢失 65: 超上限 ,66: 超下限 ...(同产品定义), as: 对应的accessStatus的值，ac: 对应的accessCode的值, times: 累计次数, 如果v是累计值, 该字段必填}"
+    },
+    "period": {
+      "type": "integer",
+      "title": "周期",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "enumNames": [
+        "小时",
+        "日",
+        "周",
+        "月",
+        "年",
+        "5分钟"
+      ]
+    }
+  }
+}

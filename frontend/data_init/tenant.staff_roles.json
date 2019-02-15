@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "5adc54d0b0ea52d8ad532f3f" }, "staff" : { "$oid" : "5a60353cd36027e2390d2c6a" }, "tenant" : { "$oid" : "5a912101a1de180001ada670" }, "roles" : [ { "$oid" : "5ade2c4078e25d3621fb647c" } ] }

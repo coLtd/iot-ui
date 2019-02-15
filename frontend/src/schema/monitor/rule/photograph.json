@@ -1,0 +1,46 @@
+{
+    "title": "拍照点",
+    "type": "object",
+    "properties": {
+      "potoname": {
+        "type": "string",
+        "title": "拍照点名称"
+       },
+       "direction": {
+          "type": "integer",
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "enumNames": [
+            "上",
+            "下",
+            "左",
+            "右",
+            "左上",
+            "右上",
+            "左下",
+            "右下"
+          ],
+          "title": "拍照角度"
+        },
+        "stime": {
+          "type": "string",
+          "title": "停留时间"
+        },
+        "zoom": {
+          "type": "integer",
+          "title": "焦距缩放"
+        },
+        "rotatspeed": {
+          "type": "integer",
+          "title": "旋转速度"
+        }
+    }
+  }

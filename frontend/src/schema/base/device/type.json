@@ -1,0 +1,233 @@
+{
+  "title": "设备类型",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "类型名称",
+      "description": "只能为字母或汉字",
+      "minLength": 2,
+      "maxLength": 32,
+      "pattern": "^[a-zA-Z\u4e00-\u9fa5]+$"
+    },
+    "code": {
+      "type": "number",
+      "title": "类型ID",
+      "minimum": "0",
+      "maximum": "65535"
+      
+    },
+    "tag": {
+      "type": "integer",
+      "title": "统计标签",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enumNames": [
+        "微气象",
+        "土壤环境",
+        "水体环境",
+        "视频图像",
+        "控制设备"
+      ]
+    },
+    "gisIcon": {
+      "type": "integer",
+      "title": "GIS图标",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "enumNames": [
+        "智能气象站",
+        "普通气象站",
+        "土壤环境",
+        "水体环境",
+        "控制设备",
+        "枪机",
+        "球机",
+        "多光谱球机",
+        "降雨量"
+      ]
+    },
+    "provider": {
+      "type": "integer",
+      "title": "设备来源",
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enumNames": [
+        "神谷",
+        "broomsky",
+        "海康威视",
+        "动力视讯",
+        "雨量计"
+      ],
+      "default": 1
+    },
+    "status": {
+      "$ref": "common/definitions/status"
+    },
+    "sensorTypes": {
+      "type": "array",
+      "title": "传感器种类",
+      "items": {
+        "$id": "#base.sensor.type",
+        "type": "string"
+      }
+    },
+    "paramTypes": {
+      "type": "array",
+      "title": "参数选项",
+      "items": {
+        "$id": "#base.device.param_type",
+        "type": "string"
+      }
+    },
+    "size": {
+      "type": "string",
+      "title": "尺寸",
+      "minLength": 0,
+      "maxLength": 128
+    },
+    "weight": {
+      "type": "string",
+      "title": "重量",
+      "minLength": 0,
+      "maxLength": 128
+    },
+    "temp": {
+      "type": "string",
+      "title": "工作温度",
+      "minLength": 0,
+      "maxLength": 128
+    },
+    "photos": {
+      "type": "array",
+      "title": "类型图片",
+      "items": {
+        "type": "string"
+      },
+      "format": "img"
+    },
+    "remark": {
+      "type": "string",
+      "title": "特色描述",
+      "minLength": 0,
+      "maxLength": 128
+    },
+    "staff": {
+      "type": "string",
+      "title": "操作人",
+      "$id": "#tenant.staff"
+    },
+    "updatedOn": {
+      "type": "number",
+      "title": "操作时间",
+      "format": "datetime"
+    }
+  },
+  "required": [
+    "name",
+    "code",
+    "tag",
+    "gisIcon",
+    "provider",
+    "status"
+  ],
+  "dependencies": {
+    "provider": {
+      "oneOf": [
+        {
+          "properties": {
+            "provider": {
+              "enum": [
+                1
+              ]
+            },
+            "brand": {
+              "type": "string",
+              "title": "品牌"
+            }
+          },
+          "dependencies": {
+            "brand": ["provider"]
+          }
+        },
+        {
+          "properties": {
+            "provider": {
+              "enum": [
+                3
+              ]
+            },
+            "brand": {
+              "type": "string",
+              "title": "品牌"
+            }
+          },
+          "dependencies": {
+            "brand": ["provider"]
+          }
+        },
+        {
+          "properties": {
+            "provider": {
+              "enum": [
+                4
+              ]
+            },
+            "brand": {
+              "type": "string",
+              "title": "品牌"
+            }
+          },
+          "dependencies": {
+            "brand": ["provider"]
+          }
+        },
+        {
+          "properties": {
+            "provider": {
+              "enum": [
+                2
+              ]
+            },
+            "brand": {
+              "type": "integer",
+              "title": "品牌",
+              "enum": [
+                1,
+                2,
+                3
+              ],
+              "enumNames": [
+                "sky",
+                "spot",
+                "spot雨量计"
+              ]
+            }
+          },
+          "dependencies": {
+            "brand": ["provider"]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "title": "broomsky接入数据",
+  "type": "object",
+  "properties": {
+    "time": {
+      "type": "number",
+      "title": "时间",
+      "format": "date"
+    },
+    "device": {
+      "type": "string",
+      "title": "设备",
+      "$id": "#tenant.device"
+    },
+    "data": {
+      "type": "object",
+      "description": "接入broomsky数据, key: base.sensor.type.code, {value: 接入上报值"
+      }
+    }
+}

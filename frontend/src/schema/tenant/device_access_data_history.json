@@ -1,0 +1,26 @@
+{
+  "title": "设备接入历史数据",
+  "description": "存储设备接入的所有数据",
+  "type": "object",
+  "properties": {
+    "device": {
+      "type": "string",
+      "title": "设备",
+      "$id": "#tenant.device"
+    },
+    "time": {
+      "type": "number",
+      "title": "时间",
+      "format": "date"
+    },
+    "status": {
+      "$ref": "common/definitions/accessStatus"
+    },
+    "code": {
+      "$ref": "common/definitions/accessCode"
+    },
+    "data": {
+      "$ref": "common/definitions/accessData"
+    }
+  }
+}

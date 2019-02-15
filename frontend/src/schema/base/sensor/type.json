@@ -1,0 +1,402 @@
+{
+  "title": "传感器种类",
+  "definitions": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "单位名称",
+          "minLength": 2,
+          "maxLength": 32,
+          "pattern": "^[a-zA-Z\u4e00-\u9fa5]+$"
+        },
+        "unit": {
+          "type": "string",
+          "title": "单位符号"
+        },
+        "windowMinutes": {
+          "type": "integer",
+          "title": "累计分钟数",
+          "enum": [
+            240,
+            720,
+            1440
+          ]
+        },
+        "type": {
+          "type": "integer",
+          "title": "数据类型",
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "enumNames": [
+            "数值",
+            "数值枚举",
+            "字符串",
+            "字符串枚举",
+            "二进制"
+          ],
+          "default": 1
+        }
+      },
+      "dependencies": {
+        "type": {
+          "oneOf": [
+            {
+              "properties": {
+                "type": {
+                  "enum": [
+                    1
+                  ]
+                },
+                "minRange": {
+                  "type": "number",
+                  "title": "量程范围(下限)",
+                  "minLength": 0,
+                  "maxLength": 128
+                },
+                "maxRange": {
+                  "type": "number",
+                  "title": "量程范围(上限)",
+                  "minLength": 0,
+                  "maxLength": 128
+                },
+                "minValid": {
+                  "type": "number",
+                  "title": "有效值(下限)",
+                  "minLength": 0,
+                  "maxLength": 128
+                },
+                "maxValid": {
+                  "type": "number",
+                  "title": "有效值(上限)",
+                  "minLength": 0,
+                  "maxLength": 128
+                },
+                "minWarning": {
+                  "type": "string",
+                  "title": "告警提示内容(下限)",
+                  "minLength": 0,
+                  "maxLength": 20,
+                  "pattern": "^[a-zA-Z\u4e00-\u9fa5]+$"
+                },
+                "maxWarning": {
+                  "type": "string",
+                  "title": "告警提示内容(上限)",
+                  "minLength": 0,
+                  "maxLength": 20,
+                  "pattern": "^[a-zA-Z\u4e00-\u9fa5]+$"
+                },
+                "minTolerance": {
+                  "type": "string",
+                  "title": "误差下限",
+                  "minLength": 0,
+                  "maxLength": 128
+                },
+                "maxTolerance": {
+                  "type": "string",
+                  "title": "误差上限",
+                  "minLength": 0,
+                  "maxLength": 128
+                }
+              },
+              "required": [
+                "minRange",
+                "maxRange",
+                "minWarning",
+                "maxWarning"
+              ]
+            },
+            {
+              "properties": {
+                "type": {
+                  "enum": [
+                    2
+                  ]
+                },
+                "values": {
+                  "type": "array",
+                  "title": "枚举值",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "title": "名称"
+                      },
+                      "value": {
+                        "type": "number",
+                        "title": "枚举值"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "value"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "enum": [
+                    3
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "title": "默认值"
+                },
+                "minLength": {
+                  "type": "number",
+                  "title": "最小长度"
+                },
+                "maxLength": {
+                  "type": "number",
+                  "title": "最大长度"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "enum": [
+                    4
+                  ]
+                },
+                "values": {
+                  "type": "array",
+                  "title": "枚举值",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "title": "名称"
+                      },
+                      "value": {
+                        "type": "string",
+                        "title": "枚举值"
+                      }
+                    },
+                    "required": [
+                      "title",
+                      "value"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "enum": [
+                    5
+                  ]
+                },
+                "value": {
+                  "type": "string",
+                  "title": "默认值"
+                },
+                "minLength": {
+                  "type": "number",
+                  "title": "最小长度"
+                },
+                "maxLength": {
+                  "type": "number",
+                  "title": "最大长度"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "种类名称",
+      "minLength": 2,
+      "maxLength": 32,
+      "pattern": "^[a-zA-Z\u4e00-\u9fa5]+$"
+    },
+    "code": {
+      "type": "integer",
+      "title": "种类ID",
+      "minimum": 1,
+      "maximum": 255,
+      "pattern": "^\\d+$",
+      "description": "只能输入1～255之间的整数"
+    },
+    "type": {
+      "type": "integer",
+      "title": "设备类别",
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "enumNames": [
+        "采集器",
+        "控制器",
+        "视频图像"
+      ]
+    },
+    "status": {
+      "$ref": "common/definitions/status"
+    },
+    "brand": {
+      "type": "string",
+      "title": "品牌",
+      "minLength": 2,
+      "maxLength": 32,
+      "pattern": "^[a-zA-Z\u4e00-\u9fa5]+$"
+    },
+    "remark": {
+      "type": "string",
+      "title": "备注",
+      "minLength": 2,
+      "maxLength": 32,
+      "pattern": "^[a-zA-Z\u4e00-\u9fa5]+$"
+    },
+    "staff": {
+      "type": "string",
+      "title": "操作人",
+      "$id": "#tenant.staff"
+    },
+    "updatedOn": {
+      "type": "number",
+      "title": "操作时间",
+      "format": "datetime"
+    }
+  },
+  "required": [
+    "name",
+    "code",
+    "type"
+  ],
+  "dependencies": {
+    "type": {
+      "oneOf": [
+        {
+          "properties": {
+            "type": {
+              "enum": [
+                1
+              ]
+            },
+            "data": {
+              "$ref": "#/definitions/data"
+            }
+          }
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": [
+                3
+              ]
+            },
+            "data": {
+              "$ref": "#/definitions/data"
+            }
+          }
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": [
+                2
+              ]
+            },
+            "channels": {
+              "type": "array",
+              "title": "通道",
+              "items": {
+                "type": "object",
+                "required": [
+                  "code",
+                  "name",
+                  "commands"
+                ],
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "通道号"
+                  },
+                  "name": {
+                    "type": "string",
+                    "title": "名称"
+                  },
+                  "commands": {
+                    "type": "array",
+                    "title": "指令集",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "integer",
+                          "title": "指令码"
+                        },
+                        "name": {
+                          "type": "string",
+                          "title": "名称"
+                        },
+                        "type": {
+                          "type": "integer",
+                          "tilte": "命令类型",
+                          "enum": [
+                            1,
+                            2
+                          ],
+                          "enumNames": [
+                            "开关",
+                            "数值"
+                          ],
+                          "default": [
+                            1
+                          ]
+                        }
+                      },
+                      "dependencies": {
+                        "type": {
+                          "oneOf": [
+                            {
+                              "properties": {
+                                "type": {
+                                  "enum": [
+                                    2
+                                  ]
+                                },
+                                "min": {
+                                  "type": "number",
+                                  "title": "最小值"
+                                },
+                                "max": {
+                                  "type": "number",
+                                  "title": "最大值"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

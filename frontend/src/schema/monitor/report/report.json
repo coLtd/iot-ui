@@ -1,0 +1,55 @@
+{
+    "title": "BroomSky报表",
+    "type": "object",
+    "properties": {
+        "date": 
+        {
+            "type": "string",
+            "title": "日期"
+        },
+        "time": 
+        {
+            "type": "string",
+            "title": "时间"
+        },
+        "temperature": 
+        {
+            "type": "string",
+            "title": "温度(℃)"
+        },
+        "avg-temperature": 
+        {
+            "type": "string",
+            "title": "夏日平均温度"
+        }
+        ,"humidity": 
+        {
+            "type": "string",
+            "title": "湿度(%)"
+        },
+        "atmospheric": 
+        {
+            "type": "number",
+            "title": "压强"
+        },
+        "ultraviolet": 
+        {
+            "type": "string",
+            "title": "紫外线指数"
+        },
+        "altitude": 
+        {
+            "type": "string",
+            "title": "海拔"
+        },
+        "electric": 
+        {
+            "type": "string",
+            "title": "电量"
+        }
+    },
+    "required": 
+	[
+		
+	]
+}

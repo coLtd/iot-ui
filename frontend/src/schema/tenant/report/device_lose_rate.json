@@ -1,0 +1,29 @@
+{
+  "title": "设备丢包率",
+  "description": "对应故障分布",
+  "type": "object",
+  "properties": {
+    "time": {
+      "type": "number",
+      "title": "时间",
+      "description": "周期的开始时间",
+      "format": "date"
+    },
+    "period": {
+      "$ref": "common/definitions/period"
+    },
+    "device": {
+      "type": "string",
+      "title": "设备",
+      "$id": "#tenant.device"
+    },
+    "expect": {
+      "type": "integer",
+      "title": "期望值"
+    },
+    "real": {
+      "type": "integer",
+      "title": "实际值"
+    }
+  }
+}

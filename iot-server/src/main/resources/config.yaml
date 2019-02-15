@@ -1,0 +1,6 @@
+on:
+  port: 8200
+http:
+  cors:
+    allowedOrigins: "*"
+    allowedHttpMethods: "DELETE, PUT, POST, GET, OPTIONS"

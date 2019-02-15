@@ -1,0 +1,36 @@
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc8899f" }, "level" : 2, "title" : "概况", "icon" : "dashboard", "uri" : "/", "exact" : true, "method" : 1, "idx" : 1 }
+{ "_id" : { "$oid" : "5ad6ecee43062343d068fff1" }, "level" : 1, "title" : "监控中心", "idx" : 2 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a0" }, "level" : 2, "parent" : { "$oid" : "5ad6ecee43062343d068fff1" }, "title" : "GIS地图", "icon" : "map", "uri" : "/monitor/gis", "method" : 1, "idx" : 201 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a1" }, "level" : 2, "parent" : { "$oid" : "5ad6ecee43062343d068fff1" }, "title" : "规则设置", "icon" : "graphic_eq", "uri" : "/tenant/device_alarm_rules", "method" : 1, "idx" : 202 }
+{ "_id" : { "$oid" : "5ad6ecf643062343d068fff2" }, "level" : 1, "title" : "运维服务", "idx" : 3 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a2" }, "level" : 2, "parent" : { "$oid" : "5ad6ecf643062343d068fff2" }, "title" : "当前告警", "icon" : "alarm", "uri" : "/tenant/device/alarm", "method" : 1, "idx" : 301 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a3" }, "level" : 2, "parent" : { "$oid" : "5ad6ecf643062343d068fff2" }, "title" : "当前故障", "icon" : "signal_cellular_no_sim", "uri" : "/tenant/device/fault", "method" : 1, "idx" : 302 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a4" }, "level" : 2, "parent" : { "$oid" : "5ad6ecf643062343d068fff2" }, "title" : "故障分布", "icon" : "multiline_chart", "uri" : "/tenant/report/device_lose_rate", "method" : 1, "idx" : 303 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a5" }, "level" : 2, "parent" : { "$oid" : "5ad6ecf643062343d068fff2" }, "title" : "传感器故障", "icon" : "grid_off", "uri" : "/tenant/report/sensor_fault", "method" : 1, "idx" : 304 }
+{ "_id" : { "$oid" : "5ad6ecfd43062343d068fff3" }, "level" : 1, "title" : "设备分类", "idx" : 4.0 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a6" }, "level" : 2, "parent" : { "$oid" : "5ad6ecfd43062343d068fff3" }, "title" : "传感器种类", "icon" : "scanner", "uri" : "/base/sensor/type", "method" : 1, "idx" : 401.0 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a7" }, "level" : 3, "parent" : { "$oid" : "5ade2b83dcad0ba8adc889a6" }, "title" : "添加传感器种类", "icon" : "add", "uri" : "/base/sensor/type", "method" : 2, "idx" : 40101 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a8" }, "level" : 3, "parent" : { "$oid" : "5ade2b83dcad0ba8adc889a6" }, "title" : "修改传感器种类", "icon" : "edit", "uri" : "/base/sensor/type", "method" : 3, "idx" : 40102 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889a9" }, "level" : 3, "parent" : { "$oid" : "5ade2b83dcad0ba8adc889a6" }, "title" : "删除传感器种类", "icon" : "delete", "uri" : "/base/sensor/type", "method" : 4, "idx" : 40103 }
+{ "_id" : { "$oid" : "5ade2b83dcad0ba8adc889aa" }, "level" : 2, "parent" : { "$oid" : "5ad6ecfd43062343d068fff3" }, "title" : "参数配置", "icon" : "confirmation_number", "uri" : "/base/device/param_type", "method" : 1, "idx" : 402 }
+{ "_id" : { "$oid" : "5ade2b84dcad0ba8adc889ab" }, "level" : 2, "parent" : { "$oid" : "5ad6ecfd43062343d068fff3" }, "title" : "设备类型", "icon" : "dvr", "uri" : "/base/device/type", "method" : 1, "idx" : 403 }
+{ "_id" : { "$oid" : "5ade2b84dcad0ba8adc889ac" }, "level" : 2, "parent" : { "$oid" : "5ad6ecfd43062343d068fff3" }, "title" : "设备管理", "icon" : "devices", "uri" : "/tenant/device", "method" : 1, "idx" : 404 }
+{ "_id" : { "$oid" : "5ad6ed0543062343d068fff4" }, "level" : 1, "title" : "用户中心", "idx" : 5 }
+{ "_id" : { "$oid" : "5ade2b84dcad0ba8adc889ad" }, "level" : 2, "parent" : { "$oid" : "5ad6ed0543062343d068fff4" }, "title" : "角色权限", "icon" : "assignment_ind", "uri" : "/tenant/role", "method" : 1, "idx" : 501 }
+{ "_id" : { "$oid" : "5ade2b84dcad0ba8adc889ae" }, "level" : 2, "parent" : { "$oid" : "5ad6ed0543062343d068fff4" }, "title" : "权限管理", "icon" : "folder_shared", "uri" : "/tenant/staff_roles", "method" : 1, "idx" : 502 }
+{ "_id" : { "$oid" : "5aded1476d8c31af2c0e9b7f" }, "level" : 3, "parent" : { "$oid" : "5ade2b83dcad0ba8adc889aa" }, "title" : "添加参数", "icon" : "add", "uri" : "/base/device/param_type", "method" : 2, "idx" : 40201 }
+{ "_id" : { "$oid" : "5aded1686d8c31af2c0e9b8e" }, "level" : 3, "parent" : { "$oid" : "5ade2b83dcad0ba8adc889aa" }, "title" : "编辑参数", "icon" : "edit", "uri" : "/base/device/param_type", "method" : 3, "idx" : 40202 }
+{ "_id" : { "$oid" : "5aded1996d8c31af2c0e9ba5" }, "level" : 3, "parent" : { "$oid" : "5ade2b83dcad0ba8adc889aa" }, "title" : "删除参数", "icon" : "delete", "uri" : "/base/device/param_type", "method" : 4, "idx" : 40203 }
+{ "_id" : { "$oid" : "5aded2546d8c31af2c0e9c24" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ab" }, "title" : "添加设备类型", "icon" : "add", "uri" : "/base/device/type", "method" : 2, "idx" : 40301 }
+{ "_id" : { "$oid" : "5aded2756d8c31af2c0e9c31" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ab" }, "title" : "编辑设备类型", "icon" : "edit", "uri" : "/base/device/type", "method" : 3, "idx" : 40302 }
+{ "_id" : { "$oid" : "5aded28d6d8c31af2c0e9c40" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ab" }, "title" : "删除设备类型", "icon" : "delete", "uri" : "/base/device/type", "method" : 4, "idx" : 40303 }
+{ "_id" : { "$oid" : "5aded3056d8c31af2c0e9c72" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ac" }, "title" : "添加设备", "icon" : "add", "uri" : "/tenant/device", "method" : 2, "idx" : 40401 }
+{ "_id" : { "$oid" : "5aded3556d8c31af2c0e9c92" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ac" }, "title" : "修改设备信息", "icon" : "edit", "uri" : "/tenant/device", "method" : 3, "idx" : 40402 }
+{ "_id" : { "$oid" : "5adee04b6d8c31af2c0ea1c2" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ad" }, "title" : "新增角色", "icon" : "add", "uri" : "/tenant/role", "method" : 2, "idx" : 50101 }
+{ "_id" : { "$oid" : "5adee09d6d8c31af2c0ea1e8" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ad" }, "title" : "编辑角色", "icon" : "edit", "uri" : "/tenant/role", "method" : 3, "idx" : 50102 }
+{ "_id" : { "$oid" : "5adee0d56d8c31af2c0ea1fd" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ad" }, "title" : "删除角色", "icon" : "delete", "uri" : "/tenant/role", "method" : 4, "idx" : 50103 }
+{ "_id" : { "$oid" : "5adee12f6d8c31af2c0ea222" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ae" }, "title" : "新增用户权限", "icon" : "add", "uri" : "/tenant/staff_roles", "method" : 2, "idx" : 50201 }
+{ "_id" : { "$oid" : "5adee1506d8c31af2c0ea235" }, "level" : 3, "parent" : { "$oid" : "5ade2b84dcad0ba8adc889ae" }, "title" : "修改用户权限", "icon" : "edit", "uri" : "/tenant/staff_roles", "method" : 3, "idx" : 50202 }
+{ "_id" : { "$oid" : "5adef0026d8c31af2c0eab3c" }, "level" : 3, "parent" : { "$oid" : "5ade2b83dcad0ba8adc889a1" }, "title" : "添加采集器规则", "icon" : "add", "uri" : "/tenant/device_alarm_rules/alarmRule", "method" : 2, "idx" : 20202 }
+{ "_id" : { "$oid" : "5adef0796d8c31af2c0eab77" }, "level" : 3, "parent" : { "$oid" : "5ade2b83dcad0ba8adc889a1" }, "title" : "编辑采集器规则", "icon" : "edit/delete", "uri" : "/tenant/device_alarm_rules/alarmRule", "method" : 3, "idx" : 20203 }
+{ "_id" : { "$oid" : "5adef2926d8c31af2c0eacc2" }, "level" : 3, "parent" : { "$oid" : "5ade2b83dcad0ba8adc889a1" }, "title" : "查看采集器规则", "icon" : "edit", "uri" : "/tenant/device_alarm_rules", "method" : 3, "idx" : 20201 }

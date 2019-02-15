@@ -1,0 +1,135 @@
+{
+  "title": "配置参数类型",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "参数名称",
+      "minLength": 2,
+      "maxLength": 32
+    },
+    "code": {
+      "type": "string",
+      "title": "参数编码",
+      "minLength": 2,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z]+$"
+    },
+    "isPushParam": {
+      "type": "integer",
+      "title": "是否下发参数",
+      "enum": [
+        0,
+        1
+      ],
+      "enumNames": [
+        "否",
+        "是"
+      ],
+      "default": 0
+    },
+    "paramId": {
+      "type": "number",
+      "title": "协议参数ID",
+      "minimum": 1,
+      "maximum": 99999999
+    },
+    "required": {
+      "type": "integer",
+      "title": "是否必填项",
+      "enum": [
+        0,
+        1
+      ],
+      "enumNames": [
+        "否",
+        "是"
+      ],
+      "default": 1
+    },
+    "staff": {
+      "type": "string",
+      "title": "操作人",
+      "$id": "#tenant.staff"
+    },
+    "updatedOn": {
+      "type": "number",
+      "title": "操作时间",
+      "format": "datetime"
+    },
+    "type": {
+      "type": "integer",
+      "title": "数值类型",
+      "enum": [
+        1,
+        2
+      ],
+      "enumNames": [
+        "数值",
+        "字符串"
+      ],
+      "default": 1
+    }
+  },
+  "required": [
+    "name",
+    "code",
+    "isPushParam",
+    "required",
+    "type"
+  ],
+  "dependencies": {
+    "type": {
+      "oneOf": [
+        {
+          "properties": {
+            "type": {
+              "enum": [
+                1
+              ]
+            },
+            "value": {
+              "type": "number",
+              "title": "默认值",
+              "minimum": -99999999,
+              "maximum": 99999999
+            },
+            "min": {
+              "type": "number",
+              "title": "下限",
+              "minimum": -99999999,
+              "maximum": 99999999
+            },
+            "max": {
+              "type": "number",
+              "title": "上限",
+              "minimum": -99999999,
+              "maximum": 99999999
+            }
+          }
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": [
+                2
+              ]
+            },
+            "value": {
+              "type": "string",
+              "title": "默认值"
+            },
+            "minLength": {
+              "type": "number",
+              "title": "最小长度"
+            },
+            "maxLength": {
+              "type": "number",
+              "title": "最大长度"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

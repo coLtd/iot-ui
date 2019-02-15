@@ -1,0 +1,29 @@
+{
+    "title": "新增规则",
+    "type": "object",
+    "properties": {
+      "rulename": {
+        "type": "string",
+        "title": "规则名称"
+       },
+      "tritime": {
+        "type": "string",
+        "title": "触发时间"
+      },
+      "farmland": {
+        "type": "string",
+        "title": "所属地块"
+      },
+      "tenantname": {
+        "type": "string",
+        "title": "企业名称"
+      },
+      "potopoint": {
+        "type": "array",
+        "items": { "$ref": "#monitor.rule.photograph" }
+      }
+    },
+    "required": [
+        "rulename"
+      ]
+  }

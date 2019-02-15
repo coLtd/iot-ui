@@ -1,0 +1,77 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:3.4
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+  redis:
+    image: redis:4.0.1-alpine
+    volumes:
+      - ./data/redis:/data
+    ports:
+      - 6379:6379
+    command: redis-server --appendonly yes
+  mongo-rest:
+    image: rc.ami-tek.com.cn:9082/vehiclecloud/mongo-rest:1.0.0
+    ports:
+      - 9000:9000
+    # environment:
+    #   - mongodb.uri=mongodb://47.104.162.6:9017
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+  redis-rest:
+    image: rc.ami-tek.com.cn:9082/vehiclecloud/redis-rest:1.0.0
+    ports:
+      - 9100:9100
+    links:
+      - redis
+    depends_on:
+      - redis
+  access-websocket-server:
+    image: rc.ami-tek.com.cn:9082/vehiclecloud/access-websocket-server:1.0.0
+    ports:
+      - 9200:9200
+    environment:
+      # test
+      - access.host=101.37.32.220
+      # prod 
+      # - access.host=192.168.1.163
+      # - access.port=9119
+  oauth2-server-api:
+    image: rc.ami-tek.com.cn:9082/vehiclecloud/oauth2-server-api:1.0.0
+    ports:
+      - 9300:9300
+    links:
+      - mongodb
+      - redis
+    depends_on:
+      - mongodb
+      - redis
+  file-server:
+    image: rc.ami-tek.com.cn:9082/vehiclecloud/file-server:1.0.0
+    ports:
+      - 9400:9400
+  kafka-rest:
+    image: rc.ami-tek.com.cn:9082/vehiclecloud/kafka-rest:1.0.0
+    ports:
+      - 9500:9500
+    environment:
+      # test
+      - kafka.producer.bootstrap-servers=47.104.162.6:9092
+      # prod 
+      # - kafka.producer.bootstrap-servers=192.168.1.163:9092
+  iot-frontend:
+    build: .
+    ports:
+     - "8080:8080"
+    volumes:
+     - ./build:/code/build
+     - ./config:/code/config
+     - ./src:/code/src
+     - ./static:/code/static
+     - ./test:/code/test
+    command: ["npm", "run", "dev"]

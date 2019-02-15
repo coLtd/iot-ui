@@ -1,0 +1,49 @@
+{
+  "title": "传感器故障",
+  "type": "object",
+  "properties": {
+    "time": {
+      "type": "number",
+      "title": "时间",
+      "description": "周期的开始时间",
+      "format": "date"
+    },
+    "period": {
+      "$ref": "common/definitions/period"
+    },
+    "device": {
+      "type": "string",
+      "title": "设备",
+      "$id": "#tenant.device"
+    },
+    "sensorType": {
+      "type": "string",
+      "$id": "#base.sensor.type",
+      "title": "传感器类型"
+    },
+    "dataFault": {
+      "type": "object",
+      "title": "数据异常",
+      "properties": {
+        "total": {
+          "type": "number",
+          "title": "总数"
+        }
+      }
+    },
+    "hdFault": {
+      "type": "object",
+      "title": "硬件故障",
+      "properties": {
+        "total": {
+          "type": "number",
+          "title": "总数"
+        }
+      }
+    },
+    "faults": {
+      "type": "object",
+      "description": "按错误代码的统计值 {key: code, value: count}"
+    }
+  }
+}
